@@ -94,7 +94,7 @@ public class GETRestController {
 		return new ResponseEntity<StavkaPorudzbine>(stavkaPorudzbine,HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "stavkeZaPorudzbina/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "stavkeZaPorudzbinu/{id}", method = RequestMethod.GET)
 	public Collection<StavkaPorudzbine> stavkaPoPorudzbiniId(@PathVariable("id") int id){
 		Porudzbina p = porudzbinaRepository.getOne(id);
 		return stavkaPorudzbineRepository.findByPorudzbina(p);

@@ -15,8 +15,6 @@ public class Dobavljac implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="DOBAVLJAC_ID_GENERATOR", sequenceName="DOBAVLJAC_SEQ", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="DOBAVLJAC_ID_GENERATOR")
 	private Integer id;
 
 	private String adresa;
