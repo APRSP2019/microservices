@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import post.FeignRepository;
 import post.jpa.Artikl;
 import post.jpa.Dobavljac;
 import post.jpa.Porudzbina;
@@ -18,6 +19,9 @@ import post.reps.StavkaPorudzbineRepository;
 
 @RestController
 public class PostRestController {
+	@Autowired
+	private FeignRepository feign;
+	
 	@Autowired
 	private ArtiklRepository artiklRepository;
 
@@ -58,7 +62,7 @@ public class PostRestController {
 	public ResponseEntity<StavkaPorudzbine> insertStavkaPorudzbine(@RequestBody StavkaPorudzbine stavkaPorudzbine) {
 		if (stavkaPorudzbineRepository.existsById(stavkaPorudzbine.getId()))
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
-		stavkaPorudzbine.setRedniBroj(stavkaPorudzbineRepository.nextRBr(stavkaPorudzbine.getPorudzbinaBean().getId()));
+		stavkaPorudzbine.setRedniBroj(feign.redniBroj(stavkaPorudzbine.getPorudzbinaBean().getId()));
 		stavkaPorudzbineRepository.save(stavkaPorudzbine);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

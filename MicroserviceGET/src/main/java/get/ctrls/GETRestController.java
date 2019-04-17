@@ -100,4 +100,9 @@ public class GETRestController {
 		return stavkaPorudzbineRepository.findByPorudzbina(p);
 	}
 	
+	@GetMapping(value="redniBroj/{id}")
+	public Integer redniBroj(@PathVariable("id") int id) {
+		return stavkaPorudzbineRepository.nextRBr(id);
+	}
+	
 }
