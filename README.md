@@ -5,6 +5,10 @@ Za potrebe testiranja, prilikom pokretanja MicroserviceGET aplikacije, automatsk
 
 Linkovi mikroservisa:  
 
+ZuulAPIGateway (Swagger) - http://localhost:8765/swagger-ui.html
+  - username: aprsp  
+  - password: aprsp  
+  
 ZuulAPIGateway - localhost:8765/{application-name}/{uri} (http://localhost:8765/microservice-get/artikl)
 EurekaNameingMicroservice - http://localhost:8761  
 MicroserviceGET - http://localhost:9100  
